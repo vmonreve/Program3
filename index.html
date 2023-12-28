@@ -1,0 +1,132 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program 6</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <a onclick="reRender()" id="home">HOME</a>
+            <a onclick="darkMode()" id="mode">MODE</a>
+            <a onclick="darkMode1()" id="mode1">LATAR-MERAH</a>
+            <a onclick="darkMode2()" id="mode2">LATAR-PINK</a>
+        </nav>
+        <h1>MENGUBAH BACKGROUND DENGAN JS</h1>
+        <p class="info" id="info"></p>
+    </div>
+    <!-- initializing function script -->
+    <script>
+        let body = document.body;
+        let info = document.getElementById("info");
+        let mode = document.getElementById("mode");
+        let home = document.getElementById("home");
+        let mode1 = document.getElementById("mode1");
+        let mode2 = document.getElementById("mode2");
+
+        const darkLimit = 5;
+        let darkCounter = 0;
+        let darkRemainingLeft;
+
+
+        function darkMode() {
+
+            if (darkCounter == 0) {
+                mode.textContent = "MODE-LIGHT"
+            }
+
+            if (darkCounter == 1) {
+                mode.textContent = "MODE-DARK"
+            }
+            if (darkCounter == 2) {
+                mode.textContent = "MODE-LIGHT"
+            }
+            if (darkCounter == 3) {
+                mode.textContent = "MODE-DARK"
+            }
+            if (darkCounter == 4) {
+                mode.textContent = "MODE-LIGHT"
+            }
+
+            mode1.style.display = "none";
+            mode2.style.display = "none";
+
+            if (darkRemainingLeft == 1) {
+                info.textContent = "fitur darkmode anda sudah habis";
+                mode.style.display = "none";
+                mode1.style.display = "none";
+                mode2.style.display = "none";
+                home.textContent = "Restart";
+                return;
+            }
+
+            darkCounter += 1;
+            darkRemainingLeft = darkLimit - darkCounter;
+
+            // render ke info element
+            info.textContent = `Darkmode dipakai ${darkCounter}x, tesisa ${darkRemainingLeft} `
+
+            body.classList.toggle("dark");
+
+        }
+
+        function darkMode1() {
+
+            mode.style.display = "none";
+            mode2.style.display = "none";
+
+            if (darkRemainingLeft == 1) {
+                info.textContent = "fitur MODE-BERANI anda sudah habis";
+                mode.style.display = "none";
+                mode1.style.display = "none";
+                mode2.style.display = "none";
+                home.textContent = "Restart";
+                return;
+            }
+
+            darkCounter += 1;
+            darkRemainingLeft = darkLimit - darkCounter;
+
+            // render ke info element
+            info.textContent = `MODE-MERAH dipakai ${darkCounter}x, tesisa ${darkRemainingLeft} `
+
+            body.classList.toggle("red");
+
+        }
+
+        function darkMode2() {
+
+            mode.style.display = "none";
+            mode1.style.display = "none";
+
+            if (darkRemainingLeft == 1) {
+                info.textContent = "fitur MODE-JOMBLO anda sudah habis";
+                mode.style.display = "none";
+                mode1.style.display = "none";
+                mode2.style.display = "none";
+                home.textContent = "Restart";
+                return;
+            }
+
+            darkCounter += 1;
+            darkRemainingLeft = darkLimit - darkCounter;
+
+            // render ke info element
+            info.textContent = `MODE-PINK dipakai ${darkCounter}x, tesisa ${darkRemainingLeft} `
+
+            body.classList.toggle("ungu");
+
+        }
+
+        function reRender() {
+            location.reload();
+        }
+
+    </script>
+
+</body>
+
+</html>
