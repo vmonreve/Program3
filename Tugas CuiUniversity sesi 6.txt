@@ -1,8 +1,0 @@
-Tugas CuiUniversity sesi 6
-
-dikumpulkan ke cuyuniverse.co
-
-pake hastag #sesi6
-1. Tulisan Mode diganti jadi mode-dark / mode-light 
-2. tambahkan menu mode lain (mode-berani, mode-jomblo)
-3. komentari hasil karya
